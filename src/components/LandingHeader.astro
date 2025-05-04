@@ -3,14 +3,17 @@ import Logo from "./Logo.astro";
 ---
 
 <header
-  class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40"
+  id="landing-header"
+  class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white"
 >
   <div class="flex basis-0 grow">
     <Logo />
   </div>
 
   <nav>
-    <ul class="flex text-sm font-medium text-gray-700">
+    <ul
+      class="flex text-sm font-medium text-current transition-colors duration-300"
+    >
       <li class="px-4 py-2 inline-block">
         <a href="#">Model S</a>
       </li>
@@ -32,8 +35,10 @@ import Logo from "./Logo.astro";
     </ul>
   </nav>
 
-  <nav class="flex grow basis-0 justify-end text-gray-700">
-    <ul class="flex font-medium">
+  <nav class="flex grow basis-0 justify-end">
+    <ul
+      class="flex text-sm font-medium text-current transition-colors duration-500"
+    >
       <li class="px-4 py-2 inline-block">
         <a href="#">Soporte</a>
       </li>
@@ -48,4 +53,66 @@ import Logo from "./Logo.astro";
       </li>
     </ul>
   </nav>
+
+  <div
+    id="menu-backdrop"
+    class={`
+      absolute bg-black/5 backdrop-blur-lg rounded
+      translate-x-[var(--left)] translate-y-[var(--top)]
+      left-0 top-0
+      w-[var(--width)] h-[var(--height)]
+      transition-all duration-500
+      ease-in-out opacity-0 -z-10
+    `}
+  >
+  </div>
 </header>
+
+<script>
+  const listItem = document.querySelectorAll("#landing-header li");
+  const menuBackDrop = document.querySelector("#menu-backdrop") as HTMLElement;
+
+  listItem.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      const { left, top, width, height } = item.getBoundingClientRect();
+
+      menuBackDrop.style.setProperty("--left", `${left}px`);
+      menuBackDrop.style.setProperty("--top", `${top}px`);
+      menuBackDrop.style.setProperty("--width", `${width}px`);
+      menuBackDrop.style.setProperty("--height", `${height}px`);
+
+      menuBackDrop.style.opacity = "1";
+      menuBackDrop.style.visibility = "visible";
+    });
+
+    item.addEventListener("mouseleave", () => {
+      menuBackDrop.style.opacity = "0";
+      menuBackDrop.style.visibility = "hidden";
+    });
+  });
+</script>
+
+<script>
+  const headerEl = document.querySelector("#landing-header") as HTMLElement;
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px", // en cuanto se vea el elemento
+    threshold: 0.9, // porcentaje de visibilidad
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const { isIntersecting } = entry;
+
+      if (isIntersecting) {
+        const color = entry.target.getAttribute("data-header-color");
+        headerEl.style.color = color!;
+      }
+    });
+  }, observerOptions);
+
+  const $sections = document.querySelectorAll(".landing-section");
+
+  $sections.forEach((section) => observer.observe(section));
+</script>
