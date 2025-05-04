@@ -1,13 +1,13 @@
 ---
-import model_y from "../../assets/models/model-y.avif";
+import model_3 from "../../assets/models/model-3.avif";
 import { Picture } from "astro:assets";
 import Section from "./Section.astro";
 ---
 
 <Section
-  title="Model Y"
-  color="black"
+  title="Model 3"
   subtitle="Concertar una prueba de conducción"
+  color="black"
 >
   <div slot="footer" class="space-x-2">
     <a
@@ -23,7 +23,7 @@ import Section from "./Section.astro";
   </div>
   <Picture
     slot="background"
-    src={model_y}
+    src={model_3}
     format="avif"
     formats={["avif", "webp"]}
     fallbackFormat="jpg"

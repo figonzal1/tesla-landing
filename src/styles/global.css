@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @theme {
-    --font-sans: "Gotham SSm A", "sans-serif"; 
+  --font-sans: "Gotham SSm A", "sans-serif";
 }

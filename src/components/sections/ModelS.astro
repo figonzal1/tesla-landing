@@ -1,29 +1,25 @@
 ---
-import model_y from "../../assets/models/model-y.avif";
+import model_s from "../../assets/models/model-s.avif";
 import { Picture } from "astro:assets";
 import Section from "./Section.astro";
 ---
 
-<Section
-  title="Model Y"
-  color="black"
-  subtitle="Concertar una prueba de conducción"
->
+<Section title="Model S" subtitle="Programe una consulta virtual" color="black">
   <div slot="footer" class="space-x-2">
     <a
       href="#"
       class="bg-gray-600 text-sm rounded font-medium text-white px-12 py-2 inline-block hover:bg-black hover:text-white transition-colors duration-500"
-      >Explorar inventario</a
+      >Pedido personalizado</a
     >
     <a
       href="#"
       class="bg-white text-black text-sm rounded font-medium px-12 py-2 inline-block hover:bg-black hover:text-white transition-colors duration-500"
-      >Pedido personalizado</a
+      >Saber más</a
     >
   </div>
   <Picture
     slot="background"
-    src={model_y}
+    src={model_s}
     format="avif"
     formats={["avif", "webp"]}
     fallbackFormat="jpg"
