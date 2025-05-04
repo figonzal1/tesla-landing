@@ -1,10 +1,12 @@
 ---
 import LandingHeader from "../components/LandingHeader.astro";
+import Accessories from "../components/sections/Accessories.astro";
 import HeroSection from "../components/sections/HeroSection.astro";
 import Model3 from "../components/sections/Model3.astro";
 import ModelS from "../components/sections/ModelS.astro";
 import ModelX from "../components/sections/ModelX.astro";
 import ModelY from "../components/sections/ModelY.astro";
+import Powerwall from "../components/sections/Powerwall.astro";
 import Layout from "../layouts/Layout.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -33,6 +35,14 @@ import Layout from "../layouts/Layout.astro";
     </div>
     <div class="snap-center">
       <ModelX />
+    </div>
+
+    <div class="snap-center">
+      <Powerwall />
+    </div>
+
+    <div class="snap-center">
+      <Accessories />
     </div>
   </main>
 </Layout>

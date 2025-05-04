@@ -1,25 +1,20 @@
 ---
-import model_x from "../../assets/models/model-x.avif";
+import powerwall from "../../assets/powerwall.avif";
 import { Picture } from "astro:assets";
 import Section from "./Section.astro";
 ---
 
-<Section title="Model X" subtitle="Programe una consulta virtual" color="black">
+<Section title="Solar y Powerwall" subtitle="Energía para todos" color="black">
   <div slot="footer" class="space-x-2">
     <a
       href="#"
       class="bg-gray-600 text-sm rounded font-medium text-white px-12 py-2 inline-block hover:bg-black hover:text-white transition-colors duration-500"
-      >Pedido personalizado</a
-    >
-    <a
-      href="#"
-      class="bg-white text-black text-sm rounded font-medium px-12 py-2 inline-block hover:bg-black hover:text-white transition-colors duration-500"
       >Saber más</a
     >
   </div>
   <Picture
     slot="background"
-    src={model_x}
+    src={powerwall}
     format="avif"
     formats={["avif", "webp"]}
     fallbackFormat="jpg"
